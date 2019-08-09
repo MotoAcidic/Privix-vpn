@@ -10,9 +10,7 @@ read USER_INPUT
 if [ $USER_INPUT == "Y" ] ||
    [ $USER_INPUT == "y" ]; then
 		cd
-		cd Privix-vpn
-		cd VPN
-		cd privixvpn
+		cd privix-vpn/VPN/privixvpn/
 		bash install.sh
 	else  
 		echo Vpx configuration file created successfully. 
