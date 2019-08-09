@@ -37,7 +37,7 @@ case $CHOICE in
 
 		3) # privixvpn
 		cd privixvpn
-		bash privixvpn
+		bash install.sh
 		;;
 
 		4) # Exit Script
