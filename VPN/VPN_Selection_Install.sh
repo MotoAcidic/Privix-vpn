@@ -6,7 +6,8 @@ WIDTH=40
 CHOICE_HEIGHT=6
 BACKTITLE="VPX VPN Setup Wizard"
 TITLE="VPX VPN Setup"
-MENU="Choose one of the following vpn options to install:"
+MENU="Choose one of the following vpn options to install. Keep in mind you MUST be running a 
+	  Privix Node on this server for this to work!"
 
 OPTIONS=(1 "ipsec"
 		 2 "pptp"

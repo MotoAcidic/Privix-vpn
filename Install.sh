@@ -9,9 +9,7 @@ TITLE="VPX VPS Setup"
 MENU="Choose one of the following options:"
 
 OPTIONS=(1 "Go To Privix Daemon / MasterNode Setup"
-		 2 "Go To Privix IPSEC Setup"
-		 3 "Go To Privix VPN Setup"
-		 4 "Go To Privix PPTP Setup"
+		 2 "Install VPN"
 )
 
 
@@ -31,18 +29,6 @@ case $CHOICE in
 	    
         2)  # IPSEC
 		cd VPN
-		cd ipsec
-		bash menuinstall.sh
-		;;
-
-		3)  # VPN
-		cd VPN
-		cd privixvpn
-		bash menuinstall.sh
-		;;
-
-		4)  # PPTP
-		cd pptp
-		cd privixvpn
+		bash VPN_Selection_Install.sh
 		;;
 esac
