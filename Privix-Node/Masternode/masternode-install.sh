@@ -117,12 +117,12 @@ echo "$GENKEY" > /etc/openvpn/masternodekey.txt
 echo "$EXTIP" > /etc/openvpn/masternodekey.txt
 
 # Ask user if they would like to install the vpn software after node install.
-    echo -e "${GREEN}Would you like to install Privix VPN? Y or N${GREEN}"
+    echo -n "${GREEN}Would you like to install Privix VPN? Y or N${GREEN}"
 read USER_INPUT
 if $USER_INPUT [[ -z "Y" ]];
     then
 	echo "Please read the terms of service document that can located here: Privix.io"
-	echo "If you accept and acknowledge the terms Press Y if not Press N."
+	echo -n "If you accept and acknowledge the terms Press Y if not Press N."
 	read AGREEMENT
 		if $AGREEMENT [[ -z "Y"]]
 			then
