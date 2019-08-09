@@ -25,7 +25,8 @@ clear
 case $CHOICE in
         1) # Yes move to vpn selection
 		cd
-		cd privix-vpn/VPN/VPN_Seleciton_Install.sh
+		cd privix-vpn/VPN/
+		bash VPN_Seleciton_Install.sh
         ;;
 	    
         2) # No Exit
