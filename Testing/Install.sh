@@ -11,7 +11,7 @@ BACKTITLE="VPX Setup Wizard"
 TITLE="VPX VPS Setup"
 
 # Ask user if they would like to install the vpn software after node install.
-MENU="${GREEN}Would You like to install the VPN Client as well?${GREEN}"
+MENU="Would You like to install the VPN Client as well?"
 
 OPTIONS=(1 "Yes"
 		 2 "No"
