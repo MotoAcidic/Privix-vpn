@@ -6,7 +6,7 @@ WIDTH=40
 CHOICE_HEIGHT=6
 BACKTITLE="VPX VPN Setup Wizard"
 TITLE="VPX VPN Setup"
-MENU="Choose one of the following options:"
+MENU="Choose one of the following vpn options to install:"
 
 OPTIONS=(1 "ipsec"
 		 2 "pptp"
