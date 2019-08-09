@@ -12,8 +12,8 @@ if [ $USER_INPUT == "Y" ]; then
 	read AGREEMENT
 		elif [ $AGREEMENT == "Y" ];
 		then
-			cd 
-			cd /Privix-vpn/VPN/privixvpn/
+			cd
+			cd Privix-vpn/VPN/privixvpn/
 			bash install.sh
 		else  
 			echo Vpx configuration file created successfully. 
