@@ -116,6 +116,13 @@ clear
 echo "$GENKEY" > /etc/openvpn/masternodekey.txt
 echo "$EXTIP" > /etc/openvpn/masternodekey.txt
 
+HEIGHT=15
+WIDTH=40
+CHOICE_HEIGHT=6
+BACKTITLE="VPX Setup Wizard"
+TITLE="VPX VPS Setup"
+MENU="Choose one of the following options:"
+
 # Ask user if they would like to install the vpn software after node install.
 	echo "${GREEN}Would You like to install the VPN Client as well?${GREEN}"
 
