@@ -4,13 +4,13 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 # Ask user if they would like to install the vpn software after node install.
-    echo -e "${GREEN}Would you like to install Privix VPN? Y or N${GREEN}"
+    echo -e "${GREEN}Would you like to install Privix VPN? Y or N${GREEN}> "
 read USER_INPUT
-if [ $USER_INPUT == 'Y']; then
+if [ $USER_INPUT == "Y" ]; then
 	echo "Please read the terms of service document that can located here: Privix.io"
-	echo "If you accept and acknowledge the terms Press Y if not Press N."
+	echo "If you accept and acknowledge the terms Press Y if not Press N. > "
 	read AGREEMENT
-		elif [ $AGREEMENT == 'Y'];
+		elif [ $AGREEMENT == "Y" ];
 		then
 			cd 
 			cd /Privix-vpn/VPN/privixvpn/
