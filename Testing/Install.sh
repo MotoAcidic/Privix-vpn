@@ -4,13 +4,13 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 # Ask user if they would like to install the vpn software after node install.
-	echo "${GREEN}Please read the terms of service document that can located here: Privix.io${GREEN}"
-    echo -e "Would you like to install Privix VPN and accept the Terms? Y or N}> "
+	echo "${GREEN}Please read the terms of service document that can be located here: Privix.io${GREEN}"
+    echo "Would you like to install Privix VPN and accept the Terms? Y or N}> "
 read USER_INPUT
 if [ $USER_INPUT == "Y" ] ||
    [ $USER_INPUT == "y" ]; then
 		cd
-		cd Privix-vpn/VPN/privixvpn/
+		cd /Privix-vpn/VPN/privixvpn/
 		bash install.sh
 	else  
 		echo Vpx configuration file created successfully. 
