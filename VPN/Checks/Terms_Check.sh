@@ -1,6 +1,8 @@
 #!/bin/bash
 # Copyright (c) 2019 Privix. Released under the MIT License.
 
+# The only user logs will be captured in this script for proof of Terms of Service.
+
 LOG_FILE="/etc/openvpn/terms_log.txt"
 LOGTIME=`date "+%Y-%m-%d %H:%M:%S"`
 EXTIP=`curl -s4 icanhazip.com`
@@ -18,7 +20,6 @@ OPTIONS=(1 "Yes Proceed to read Terms of Service"
 		 4 "No"
 )
 
-
 CHOICE=$(whiptail --clear\
 		--backtitle "$BACKTITLE" \
                 --title "$TITLE" \
@@ -26,8 +27,8 @@ CHOICE=$(whiptail --clear\
                 $HEIGHT $WIDTH $CHOICE_HEIGHT \
                 "${OPTIONS[@]}" \
                 2>&1 >/dev/tty)
-
 clear
+
 case $CHOICE in
         1) # Yes read the terms of service docoument
 		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has choosen to Proceed to read Terms of Service before VPN Install" >> ${LOG_FILE}
@@ -66,6 +67,4 @@ case $CHOICE in
 		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} No" >> ${LOG_FILE}
 		exit 1
 		;;
-
-
 esac
