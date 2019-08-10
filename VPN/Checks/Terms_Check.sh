@@ -3,6 +3,7 @@
 
 LOG_FILE="/etc/openvpn/terms_log.txt"
 LOGTIME=`date "+%Y-%m-%d %H:%M:%S"`
+EXTIP=`curl -s4 icanhazip.com`
 
 HEIGHT=15
 WIDTH=40
@@ -28,22 +29,20 @@ CHOICE=$(whiptail --clear\
 clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
-		# printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
-		echo ${LOGTIME} " : Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
+		echo ${LOGTIME} " : Choice 1 Selected by User on vps ${EXTIP}. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
 		cd
-		cd privix-vpn/Docs/Temp_Terms_of_Service/
-		cat Terms.md
+		cat privix-vpn/Docs/Temp_Terms_of_Service/Terms.md
         ;;
 
 		2) # Yes move to vpn selection
-		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 2 Selected by User. Yes Proceed without reading"  >> ${LOG_FILE}
+		echo ${LOGTIME} " : Choice 2 Selected by User on vps ${EXTIP}. Yes Proceed without reading"  >> ${LOG_FILE}
 		cd
-		cd privix-vpn/VPN/
-		bash VPN_Selection_Install.sh
+		bash privix-vpn/VPN/VPN_Selection_Install.sh
+		 
         ;;
 	    
         3) # No Exit
-		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 3 Selected by User, No" >> ${LOG_FILE}
+		echo ${LOGTIME} " : Choice 3 Selected by User on vps ${EXTIP}. No" >> ${LOG_FILE}
 		exit 1
 		;;
 
