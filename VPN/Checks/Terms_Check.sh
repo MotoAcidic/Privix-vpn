@@ -8,8 +8,9 @@ BACKTITLE="Terms Check"
 TITLE="VPX VPN Terms And Condidtions"
 MENU="Do You Accept The Terms and conditions here: privix.io"
 
-OPTIONS=(1 "Yes"
-		 2 "No"
+OPTIONS=(1 "Yes Proceed to read Terms of Service"
+		 2 "Yes Proceed without reading"
+		 3 "No"
 )
 
 
@@ -23,13 +24,19 @@ CHOICE=$(whiptail --clear\
 
 clear
 case $CHOICE in
-        1) # Yes move to vpn selection
+        1) # Yes read the terms of service docoument
+		cd
+		cd privix-vpn/Docs
+		head -20 <Terms.md>
+        ;;
+
+		2) # Yes move to vpn selection
 		cd
 		cd privix-vpn/VPN/
 		bash VPN_Selection_Install.sh
         ;;
 	    
-        2) # No Exit
+        3) # No Exit
 		exit 1
 		;;
 
