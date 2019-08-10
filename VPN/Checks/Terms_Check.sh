@@ -14,7 +14,8 @@ MENU="Do You Accept The Terms and conditions here: privix.io"
 
 OPTIONS=(1 "Yes Proceed to read Terms of Service"
 		 2 "Yes Proceed without reading"
-		 3 "No"
+		 3 "Yes I have already read the Terms of Service"
+		 4 "No"
 )
 
 
@@ -29,20 +30,25 @@ CHOICE=$(whiptail --clear\
 clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
-		echo ${LOGTIME} " : Choice 1 Selected by User on vps ${EXTIP}. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
+		echo ${LOGTIME} " : User on vps ${EXTIP} has choosen to Proceed to read Terms of Service before VPN Install" >> ${LOG_FILE}
 		cd
 		cat privix-vpn/Docs/Temp_Terms_of_Service/Terms.md
         ;;
 
 		2) # Yes move to vpn selection
-		echo ${LOGTIME} " : Choice 2 Selected by User on vps ${EXTIP}. Yes Proceed without reading"  >> ${LOG_FILE}
+		echo ${LOGTIME} " : User on vps ${EXTIP} has choosen to Proceed without reading"  >> ${LOG_FILE}
 		cd
-		bash privix-vpn/VPN/VPN_Selection_Install.sh
-		 
+		bash privix-vpn/VPN/VPN_Selection_Install.sh		 
+        ;;
+
+		3) # Yes i have already read the terms of service
+		echo ${LOGTIME} " : User on vps ${EXTIP} has choosen they have already read the Terms of Service"  >> ${LOG_FILE}
+		cd
+		bash privix-vpn/VPN/VPN_Selection_Install.sh		 
         ;;
 	    
-        3) # No Exit
-		echo ${LOGTIME} " : Choice 3 Selected by User on vps ${EXTIP}. No" >> ${LOG_FILE}
+        4) # No Exit
+		echo ${LOGTIME} " : User on vps ${EXTIP} No" >> ${LOG_FILE}
 		exit 1
 		;;
 
