@@ -2,6 +2,7 @@
 # Copyright (c) 2019 Privix. Released under the MIT License.
 
 LOG_FILE="/etc/openvpn/terms_log.txt"
+LOGTIME=`date "+%Y-%m-%d %H:%M:%S"`
 
 HEIGHT=15
 WIDTH=40
@@ -27,7 +28,8 @@ CHOICE=$(whiptail --clear\
 clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
-		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
+		# printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
+		echo $LOGTIME " : Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> $LOG_FILE
 		cd
 		cd privix-vpn/Docs/Temp_Terms_of_Service/
 		cat Terms.md
