@@ -29,7 +29,7 @@ clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
 		# printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
-		echo $LOGTIME " : Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> $LOG_FILE
+		echo ${LOGTIME} " : Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
 		cd
 		cd privix-vpn/Docs/Temp_Terms_of_Service/
 		cat Terms.md
