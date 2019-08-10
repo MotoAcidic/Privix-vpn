@@ -26,7 +26,7 @@ clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
 		cd
-		cd privix-vpn/Docs
+		cd privix-vpn/Docs/Temp_Terms_of_Service/
 		head -20 Terms.md
         ;;
 
