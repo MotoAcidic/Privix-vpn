@@ -27,21 +27,21 @@ CHOICE=$(whiptail --clear\
 clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
-		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice" "$CHOICE" "Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
+		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 1 Selected by User. Yes Proceed to read Terms of Service" >> ${LOG_FILE}
 		cd
 		cd privix-vpn/Docs/Temp_Terms_of_Service/
 		cat Terms.md
         ;;
 
 		2) # Yes move to vpn selection
-		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice" "$CHOICE" "Selected by User. Yes Proceed without reading"  >> ${LOG_FILE}
+		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 2 Selected by User. Yes Proceed without reading"  >> ${LOG_FILE}
 		cd
 		cd privix-vpn/VPN/
 		bash VPN_Selection_Install.sh
         ;;
 	    
         3) # No Exit
-		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice" "$CHOICE" "Selected by User, No" >> ${LOG_FILE}
+		printf "%(%Y-%m-%d %T)T %s\n" -1 "Choice 3 Selected by User, No" >> ${LOG_FILE}
 		exit 1
 		;;
 
