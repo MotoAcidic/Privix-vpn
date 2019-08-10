@@ -27,7 +27,7 @@ case $CHOICE in
         1) # Yes read the terms of service docoument
 		cd
 		cd privix-vpn/Docs
-		head -20 <Terms.md>
+		head -20 Terms.md
         ;;
 
 		2) # Yes move to vpn selection
