@@ -30,7 +30,7 @@ CHOICE=$(whiptail --clear\
 clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
-		echo ${LOGTIME} " : User on vps ${EXTIP} has choosen to Proceed to read Terms of Service before VPN Install" >> ${LOG_FILE}
+		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has choosen to Proceed to read Terms of Service before VPN Install" >> ${LOG_FILE}
 		cd
 		cat privix-vpn/Docs/Temp_Terms_of_Service/Terms.md
         ;;
