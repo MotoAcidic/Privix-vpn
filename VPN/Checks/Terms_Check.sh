@@ -1,6 +1,9 @@
 #!/bin/bash
 # Copyright (c) 2019 Privix. Released under the MIT License.
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+
 LOG_FILE="/etc/openvpn/terms_log.txt"
 LOGTIME=`date "+%Y-%m-%d %H:%M:%S"`
 EXTIP=`curl -s4 icanhazip.com`
@@ -33,22 +36,36 @@ case $CHOICE in
 		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has choosen to Proceed to read Terms of Service before VPN Install" >> ${LOG_FILE}
 		cd
 		cat privix-vpn/Docs/Temp_Terms_of_Service/Terms.md
+
+		# Ask user if they accept after reading Terms of Service.
+		echo "${GREEN}Do you Accept the Terms of Serivce? Y or N ${GREEN}"		
+		read USER_INPUT
+		
+		if [ $USER_INPUT == "Y" ] ||
+		   [ $USER_INPUT == "y" ]; then
+		   echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has choosen finished reading Terms of Service and proceeded to install the VPN on this server." >> ${LOG_FILE}
+		cd
+		bash privix-vpn/VPN/VPN_Selection_Install.sh
+		elif [ $USER_INPUT == "N" ] ||
+			 [ $USER_INPUT == "n" ]; then 
+			exit 1
+		fi
         ;;
 
 		2) # Yes move to vpn selection
-		echo ${LOGTIME} " : User on vps ${EXTIP} has choosen to Proceed without reading"  >> ${LOG_FILE}
+		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has choosen to Proceed without reading"  >> ${LOG_FILE}
 		cd
 		bash privix-vpn/VPN/VPN_Selection_Install.sh		 
         ;;
 
 		3) # Yes i have already read the terms of service
-		echo ${LOGTIME} " : User on vps ${EXTIP} has choosen they have already read the Terms of Service"  >> ${LOG_FILE}
+		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has choosen they have already read the Terms of Service"  >> ${LOG_FILE}
 		cd
 		bash privix-vpn/VPN/VPN_Selection_Install.sh		 
         ;;
 	    
         4) # No Exit
-		echo ${LOGTIME} " : User on vps ${EXTIP} No" >> ${LOG_FILE}
+		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} No" >> ${LOG_FILE}
 		exit 1
 		;;
 
