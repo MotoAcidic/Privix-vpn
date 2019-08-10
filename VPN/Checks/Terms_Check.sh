@@ -1,6 +1,8 @@
 #!/bin/bash
 # Copyright (c) 2019 Privix. Released under the MIT License.
 
+LOG_FILE="/etc/openvpn/terms_log.txt"
+
 HEIGHT=15
 WIDTH=40
 CHOICE_HEIGHT=6
@@ -25,18 +27,21 @@ CHOICE=$(whiptail --clear\
 clear
 case $CHOICE in
         1) # Yes read the terms of service docoument
+		printf "%(%Y-%m-%d %T)T %s\n" -1 "$CHOICE"  >> ${LOG_FILE}
 		cd
 		cd privix-vpn/Docs/Temp_Terms_of_Service/
-		head -20 Terms.md
+		cat Terms.md
         ;;
 
 		2) # Yes move to vpn selection
+		printf "%(%Y-%m-%d %T)T %s\n" -1 "$CHOICE"  >> ${LOG_FILE}
 		cd
 		cd privix-vpn/VPN/
 		bash VPN_Selection_Install.sh
         ;;
 	    
         3) # No Exit
+		printf "%(%Y-%m-%d %T)T %s\n" -1 "$CHOICE"  >> ${LOG_FILE}
 		exit 1
 		;;
 
