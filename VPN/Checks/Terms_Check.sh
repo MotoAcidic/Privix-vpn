@@ -1,9 +1,6 @@
 #!/bin/bash
 # Copyright (c) 2019 Privix. Released under the MIT License.
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-
 LOG_FILE="/etc/openvpn/terms_log.txt"
 LOGTIME=`date "+%Y-%m-%d %H:%M:%S"`
 EXTIP=`curl -s4 icanhazip.com`
@@ -38,17 +35,18 @@ case $CHOICE in
 		cat privix-vpn/Docs/Temp_Terms_of_Service/Terms.md
 
 		# Ask user if they accept after reading Terms of Service.
-		echo "${GREEN}Do you Accept the Terms of Serivce? Y or N ${GREEN}"		
+		echo "Do you Accept the Terms of Serivce? Y or N"		
 		read USER_INPUT
 		
 		if [ $USER_INPUT == "Y" ] ||
 		   [ $USER_INPUT == "y" ]; then
-		   echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has choosen finished reading Terms of Service and proceeded to install the VPN on this server." >> ${LOG_FILE}
+		   echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has finished reading the Terms of Service and has choosen to proceed to install the VPN on this server." >> ${LOG_FILE}
 		cd
 		bash privix-vpn/VPN/VPN_Selection_Install.sh
 		elif [ $USER_INPUT == "N" ] ||
 			 [ $USER_INPUT == "n" ]; then 
-			exit 1
+		echo ${LOGTIME} " : User ${USER} on vps ${EXTIP} has finished reading the Terms of Service and choosen not to install the VPN on this server." >> ${LOG_FILE}
+			 exit 1
 		fi
         ;;
 
