@@ -26,12 +26,12 @@ MNSTATUS=${MNSTAT:1:7}
 # Output the current Status
 echo "${MNSTATUS}" > /etc/openvpn/masternode_status.txt
 
-if [[ $MNSTATUS == "ENABLED" ]]; then
+if [ $MNSTATUS == "ENABLED" ]; then
 # Make the logfile input for ENABLED
 echo -e ${LOGTIME} " : User ${GREEN}${USER}${NC} on vps ${BLUE}${EXTIP}${NC} has provided ${GREEN}${MNADDY}${NC} as their masternode address with a node status of: ${GREEN}${MNSTATUS}${NC}." >> ${LOG_FILE}
 
 else
 # Make the logfile input for anything else
 echo -e ${LOGTIME} " : User ${GREEN}${USER}${NC} on vps ${BLUE}${EXTIP}${NC} has provided ${GREEN}${MNADDY}${NC} as their masternode address with a node status of: ${RED}${MNSTATUS}${NC}." >> ${LOG_FILE}
-
+exit
 fi
